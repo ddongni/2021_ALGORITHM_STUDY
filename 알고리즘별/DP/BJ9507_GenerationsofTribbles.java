@@ -1,4 +1,4 @@
-package BJ9507_GenrationsofTribbles;
+package BJ9507_GenerationsofTribbles;
 
 import java.util.Scanner;
 
