@@ -1,0 +1,17 @@
+package yogiyo01;
+
+public class Main {
+	public static void main(String[] args) {
+		String S ="John Doe";
+		String C ="Example";
+		S = S.toLowerCase();
+		C = C.toLowerCase();
+		String[] arrayS = S.split(" ");
+		String result = "";
+		if(arrayS.length==2){
+			result = arrayS[1]+"_"+arrayS[0]+"@"+C+".com";
+		}else if(arrayS.length==3) {
+			result = arrayS[2]+"_"+arrayS[0]+"@"+C+".com";
+		}
+	}
+}

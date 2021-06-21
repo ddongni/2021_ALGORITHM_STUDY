@@ -1,0 +1,18 @@
+package yogiyo01;
+
+public class Main {
+	public static void main(String[] args) {
+		String S ="Peter Benjamin Parker";
+		String C ="Example";
+		String lowerS = S.toLowerCase();
+		String lowerC = C.toLowerCase();
+		String[] arrayS = lowerS.split(" ");
+		String result = "";
+		if(arrayS.length==2){
+			result = arrayS[1]+"_"+arrayS[0]+"@"+lowerC+".com";
+		}else if(arrayS.length==3) {
+			result = arrayS[2]+"_"+arrayS[0]+"@"+lowerC+".com";
+		}
+		System.out.println(S+" <"+result+">");
+	}
+}

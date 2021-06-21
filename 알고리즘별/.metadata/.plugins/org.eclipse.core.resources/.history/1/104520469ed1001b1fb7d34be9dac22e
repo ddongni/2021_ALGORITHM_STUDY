@@ -1,0 +1,26 @@
+package yogiyo01;
+
+import java.util.HashSet;
+
+public class Main {
+	public static void main(String[] args) {
+		String S ="Mary Jane Watson-Parker";
+		String C ="Example";
+		String lowerS = S.toLowerCase().replace("-", "");
+		String lowerC = C.toLowerCase();
+		String[] arrayS = lowerS.split(" ");
+		String result = "";
+		HashMap<String,Integer> names = new HashMap<>();
+		if(arrayS.length==2){
+			String formattedName = arrayS[1]+"_"+arrayS[0];
+			if(!names.add(formattedName)) {
+				
+			}
+			result = formattedName+"@"+lowerC+".com";
+		}else if(arrayS.length==3) {
+			String formattedName = arrayS[2]+"_"+arrayS[0];
+			result = formattedName+"@"+lowerC+".com";
+		}
+		System.out.println(S+" <"+result+">");
+	}
+}

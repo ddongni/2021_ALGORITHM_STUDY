@@ -1,0 +1,41 @@
+package BJ2491_¼ö¿­;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		int[] asc_dp = new int[n];
+		int[] desc_dp = new int[n];
+		int ans = 2;
+		for (int i = 0; i < n; i++) {
+			int count = 0;
+			for (int j = i - 1; j >= 0; j--) {
+				if (arr[j] <= arr[i] && asc_dp[i] < asc_dp[j] + 1) {
+					asc_dp[i] = asc_dp[j] + 1;
+					count++;
+				}
+				if (arr[j] > arr[i])
+					break;
+			}
+			count = 0;
+			for (int j = i - 1; j >= 0; j--) {
+				if (arr[j] >= arr[i] && desc_dp[i] < desc_dp[j] + 1) {
+					desc_dp[i] = desc_dp[j] + 1;
+					count++;
+				}
+				if (arr[j] < arr[i])
+					break;
+			}
+			if (count >= 3) {
+				ans = Math.max(ans, count);
+			}
+		}
+		System.out.println(ans);
+	}
+}

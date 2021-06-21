@@ -1,0 +1,47 @@
+package yogiyo02;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		String S = "1988-08-29        956 system.zip\r\n"
+				+ "1976-09-16     126976 old-photos.tgz\r\n"
+				+ "1987-02-03     118784 logs.rar\r\n"
+				+ "1961-12-04  703594496 very-long-filename.rar\r\n"
+				+ "1980-08-03          2 DELETE-THIS.TXT\r\n"
+				+ "2014-08-23        138 important.rar\r\n"
+				+ "2001-08-26     595968 MOONLIGHT-SONATA.FLAC\r\n"
+				+ "1967-11-30     245760 archive.rar\r\n"
+				+ "1995-10-13        731 file.tgz";
+	
+		StringTokenizer st = new StringTokenizer(S);
+		int ans = 0;
+		while (st.hasMoreTokens()) {
+			boolean isInclued = true;
+			
+			int date = Integer.parseInt(st.nextToken().replace("-", ""));
+			if (date > 19951013)
+				isInclued = false;
+			
+			System.out.println(date +" ]] "+isInclued);
+			int size = Integer.parseInt(st.nextToken());
+			if (size > 240 * Math.pow(2, 10))
+				isInclued = false;
+			System.out.println(size);
+			String name = st.nextToken();
+			System.out.println(name+" ]] "+isInclued);
+			String[] arrayName = name.split("[.]");
+			String extension = arrayName[arrayName.length - 1];
+			if (!extension.equals("zip") && !extension.equals("rar") && !extension.equals("tgz"))
+				isInclued = false;
+			System.out.println(extension+" ]] "+isInclued);
+			System.out.println();
+			if(isInclued)
+				ans++;
+		}
+		System.out.println(ans);
+	}
+}

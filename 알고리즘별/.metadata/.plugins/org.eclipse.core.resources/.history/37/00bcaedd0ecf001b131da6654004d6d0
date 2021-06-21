@@ -1,0 +1,24 @@
+package BJ14916_°Å½º¸§µ·;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] dp = new int[100001];
+		Arrays.fill(dp, Integer.MAX_VALUE);
+		dp[2] = dp[4] = dp[5] = 1;
+		for (int i = 5; i <= n; i++) {
+
+			if (dp[i - 2] != 0) {
+				dp[i] = Math.min(dp[i], dp[i - 2] + 1);
+			}
+			if (dp[i - 5] != 0) {
+				dp[i] = Math.min(dp[i], dp[i - 5] + 1);
+			}
+		}
+		System.out.println(dp[n]);
+	}
+}

@@ -1,0 +1,14 @@
+package yogiyo03;
+
+import java.util.HashSet;
+
+public class Main {
+	public static void main(String[] args) {
+		int[] A = { 1, 2, 3, 2 };
+		int[] dp = new int[100000];
+		HashSet<Integer> set = new HashSet<>();
+		for (int i = 0; i < A.length; i++) {
+			dp[i] = 
+		}
+	}
+}

@@ -1,0 +1,31 @@
+package yogiyo01;
+
+import java.util.HashMap;
+
+public class Main {
+	public static void main(String[] args) {
+		String S = "John Doe; Peter Benjamin Parker; Mary Jane Watson-Parker; John Elvis Doe; John Evan Doe; Jane Doe; Peter Brian Parker";
+		String C = "Example";
+		String[] userNames = S.split("; ");
+		for (String name : userNames) {
+		System.out.println(name);
+		}
+		String lowerC = C.toLowerCase();
+		for (String name : userNames) {
+			String lowerS = name.toLowerCase().replace("-", "");
+			String[] arrayS = lowerS.split(" ");
+			String result = "";
+			HashMap<String, Integer> names = new HashMap<>();
+			if (arrayS.length == 2) {
+				String formattedName = arrayS[1] + "_" + arrayS[0];
+				names.put(formattedName, names.getOrDefault(formattedName, 0) + 1);
+				result = formattedName + names.get(formattedName) + "@" + lowerC + ".com";
+			} else if (arrayS.length == 3) {
+				String formattedName = arrayS[2] + "_" + arrayS[0];
+				names.put(formattedName, names.getOrDefault(formattedName, 0) + 1);
+				result = formattedName + names.get(formattedName) + "@" + lowerC + ".com";
+			}
+			System.out.println(S + " <" + result + ">");
+		}
+	}
+}
